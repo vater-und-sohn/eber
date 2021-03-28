@@ -1,5 +1,6 @@
 package com.vaterundsohn.eber.service;
 
+import com.vaterundsohn.eber.model.GroupByPeriod;
 import com.vaterundsohn.eber.repository.DailyRecordRepository;
 import com.vaterundsohn.eber.model.DailyRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class RecordDisplayService {
 
     public List<DailyRecord> findAll() {
         return dailyRecordRepository.findAll();
+    }
+
+    public List<GroupByPeriod> groupByPeriodType() {
+        return dailyRecordRepository.groupByPeriodType();
     }
 
 }

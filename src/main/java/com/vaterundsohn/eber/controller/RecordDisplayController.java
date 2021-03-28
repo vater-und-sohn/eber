@@ -2,6 +2,7 @@ package com.vaterundsohn.eber.controller;
 
 import com.vaterundsohn.eber.model.DailyRecord;
 import com.vaterundsohn.eber.model.GroupByPeriod;
+import com.vaterundsohn.eber.model.GroupByPigType;
 import com.vaterundsohn.eber.service.RecordDisplayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,11 @@ public class RecordDisplayController {
     @GetMapping("group-by-period-type")
     public List<GroupByPeriod> groupByPeriods() {
         return recordDisplayService.groupByPeriodType();
+    }
+
+    @GetMapping("group-by-pig-type")
+    public List<GroupByPigType> groupByPigType() {
+        return recordDisplayService.groupByPigType();
     }
 
 }

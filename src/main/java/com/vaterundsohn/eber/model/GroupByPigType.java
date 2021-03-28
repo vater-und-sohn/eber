@@ -2,10 +2,10 @@ package com.vaterundsohn.eber.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class GroupByPeriod {
+public class GroupByPigType {
 
-    @JsonProperty("period_type")
-    private DailyRecord.PeriodType periodType;
+    @JsonProperty("pig_type")
+    private DailyRecord.PigType pigType;
 
     @JsonProperty("all_num")
     private int allNum;

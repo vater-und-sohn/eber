@@ -2,7 +2,9 @@ package com.vaterundsohn.eber.repository;
 
 import com.vaterundsohn.eber.model.DailyRecord;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.type.JdbcType;
 
+import java.sql.Date;
 import java.util.List;
 
 @Mapper
@@ -16,7 +18,7 @@ public interface DailyRecordRepository {
             @Result(property = "pigNum", column = "pig_num"),
             @Result(property = "pigWeight", column = "pig_weight")
     })
-    @Select("SELECT * FROM daily_record")
+    @Select("SELECT * FROM daily_record order by date_time")
     List<DailyRecord> findAll();
 
     @Insert("insert into daily_record(date_time, pig_type, period_type, change_reason, pig_num, pig_weight)\n" +

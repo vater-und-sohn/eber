@@ -1,7 +1,7 @@
 package com.vaterundsohn.eber.controller;
 
 import com.vaterundsohn.eber.model.DailyRecord;
-import com.vaterundsohn.eber.service.RecordCollectSercive;
+import com.vaterundsohn.eber.model.GroupByPeriod;
 import com.vaterundsohn.eber.service.RecordDisplayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +11,12 @@ import java.util.List;
 @CrossOrigin()
 @RestController
 @RequestMapping("record")
-public class RecordController {
+public class RecordDisplayController {
 
-    RecordCollectSercive recordCollectSercive;
     RecordDisplayService recordDisplayService;
 
     @Autowired
-    public RecordController(RecordCollectSercive dataCollectSercive, RecordDisplayService dataDisplayService) {
-        this.recordCollectSercive = dataCollectSercive;
+    public RecordDisplayController(RecordDisplayService dataDisplayService) {
         this.recordDisplayService = dataDisplayService;
     }
 
@@ -27,10 +25,9 @@ public class RecordController {
         return recordDisplayService.findAll();
     }
 
-    // TODO 包装返回数据
-    @PostMapping
-    public void postRecord(@RequestBody DailyRecord dailyRecord) {
-        recordCollectSercive.saveRecord(dailyRecord);
+    @GetMapping("group-by-period-type")
+    public List<GroupByPeriod> groupByPeriods() {
+        return recordDisplayService.groupByPeriodType();
     }
 
 }

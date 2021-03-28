@@ -1,5 +1,6 @@
 package com.vaterundsohn.eber.service;
 
+import com.vaterundsohn.eber.model.GroupByChangeReason;
 import com.vaterundsohn.eber.model.GroupByPeriod;
 import com.vaterundsohn.eber.model.GroupByPigType;
 import com.vaterundsohn.eber.repository.DailyRecordRepository;
@@ -29,6 +30,10 @@ public class RecordDisplayService {
 
     public List<GroupByPigType> groupByPigType() {
         return dailyRecordRepository.groupByPigType();
+    }
+
+    public List<GroupByChangeReason> groupByChangeReason() {
+        return dailyRecordRepository.groupByChangeReason();
     }
 
 }

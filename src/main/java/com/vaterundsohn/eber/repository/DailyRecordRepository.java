@@ -1,6 +1,7 @@
 package com.vaterundsohn.eber.repository;
 
 import com.vaterundsohn.eber.model.DailyRecord;
+import com.vaterundsohn.eber.model.GroupByChangeReason;
 import com.vaterundsohn.eber.model.GroupByPeriod;
 import com.vaterundsohn.eber.model.GroupByPigType;
 import org.apache.ibatis.annotations.*;
@@ -34,10 +35,10 @@ public interface DailyRecordRepository {
     List<GroupByPeriod> groupByPeriodType();
 
     @Select("SELECT change_reason, sum(pig_num) as num, sum(pig_weight) as weight FROM daily_record group by change_reason")
-    @Result(property = "pigType", column = "pig_type")
+    @Result(property = "changeReason", column = "change_reason")
     @Result(property = "allNum", column = "num")
     @Result(property = "allWeight", column = "weight")
-    List<GroupByPigType> groupByChangeReason();
+    List<GroupByChangeReason> groupByChangeReason();
 
     @Insert("insert into daily_record(date_time, pig_type, period_type, change_reason, pig_num, pig_weight)\n" +
             "values (#{dateTime}, #{pigType}, #{periodType}, #{changeReason}, #{pigNum}, #{pigWeight})")

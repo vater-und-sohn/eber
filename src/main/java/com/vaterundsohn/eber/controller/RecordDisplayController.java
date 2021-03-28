@@ -1,6 +1,7 @@
 package com.vaterundsohn.eber.controller;
 
 import com.vaterundsohn.eber.model.DailyRecord;
+import com.vaterundsohn.eber.model.GroupByChangeReason;
 import com.vaterundsohn.eber.model.GroupByPeriod;
 import com.vaterundsohn.eber.model.GroupByPigType;
 import com.vaterundsohn.eber.service.RecordDisplayService;
@@ -34,6 +35,11 @@ public class RecordDisplayController {
     @GetMapping("group-by-pig-type")
     public List<GroupByPigType> groupByPigType() {
         return recordDisplayService.groupByPigType();
+    }
+
+    @GetMapping("group-by-change-reason")
+    public List<GroupByChangeReason> groupByChangeReason() {
+        return recordDisplayService.groupByChangeReason();
     }
 
 }

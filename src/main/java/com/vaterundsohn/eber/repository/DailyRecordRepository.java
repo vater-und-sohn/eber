@@ -1,4 +1,4 @@
-package com.vaterundsohn.eber.mapper;
+package com.vaterundsohn.eber.repository;
 
 import com.vaterundsohn.eber.model.DailyRecord;
 import org.apache.ibatis.annotations.*;
@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper
-public interface DailyRecordMapper {
+public interface DailyRecordRepository {
     @Results(id = "BaseResultMap", value = {
             @Result(property = "id", column = "id"),
             @Result(property = "dateTime", column = "date_time"),
